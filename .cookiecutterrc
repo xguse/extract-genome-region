@@ -1,0 +1,31 @@
+# This file exists so you can easily regenerate your project.
+#
+# Unfortunatelly cookiecutter can't use this right away so
+# you have to copy this file to ~/.cookiecutterrc
+
+default_context:
+
+    c_extension_optional:      'no'
+    c_extension_support:       'no'
+    codacy:                    'no'
+    codeclimate:               'no'
+    codecov:                   'no'
+    command_line_interface:    'click'
+    coveralls:                 'no'
+    distribution_name:         'extract_genome_region'
+    email:                     'w.gus.dunn@gmail.com'
+    full_name:                 'Gus Dunn'
+    github_username:           'xguse'
+    landscape:                 'no'
+    package_name:              'extract_genome_region'
+    project_name:              'Extract genome region'
+    project_short_description: 'Given a CSV file of variable information defining the regions of interest, return a file that contains a fasta-formatted representation of these regions.'
+    release_date:              '2016-05-23'
+    repo_name:                 'extract-genome-region'
+    scrutinizer:               'no'
+    sphinx_theme:              'sphinx-rtd-theme'
+    test_matrix_configurator:  'no'
+    test_runner:               'pytest'
+    version:                   '0.0.1'
+    website:                   'https://github.com/xguse'
+    year:                      '2016'
