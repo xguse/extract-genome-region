@@ -4,7 +4,7 @@ from click.testing import CliRunner
 from extract_genome_region.__main__ import main
 
 
-def test_main():
+def test_main_regression():
     runner = CliRunner()
     result = runner.invoke(main, [])
 

@@ -22,6 +22,13 @@ def read(*names, **kwargs):
     ).read()
 
 
+std_requires = []
+with open("requirements.txt", 'r') as reqs:
+    for line in reqs:
+        if line.startswith('#'):
+            continue
+        std_requires.append(line.rstrip("\n"))
+
 setup(
     name='extract_genome_region',
     version='0.0.1',
@@ -45,21 +52,18 @@ setup(
         'Operating System :: POSIX',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Utilities',
     ],
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
-    install_requires=[
-        'click',
-    ],
+    install_requires=std_requires,
     extras_require={
         # eg:
         #   'rst': ['docutils>=0.11'],
