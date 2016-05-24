@@ -7,10 +7,10 @@ env:
   matrix:
     - TOXENV=2.7
     # - TOXENV=2.7-nocover
+    - TOXENV=3.3
+    # - TOXENV=3.3-nocover
     - TOXENV=3.4
     # - TOXENV=3.4-nocover
-    - TOXENV=3.5
-    # - TOXENV=3.5-nocover
     - TOXENV=pypy
     # - TOXENV=pypy-nocover
 before_install:
