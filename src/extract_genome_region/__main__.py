@@ -29,7 +29,7 @@ def gen_records(path):
     expected_headers = 'record_name,scaffold,start,stop,left_bfr,right_bfr'
     Record = namedtuple('Record', expected_headers)
 
-    with open(path, 'r', newline='') as records:
+    with open(path, 'r') as records:
         reader = csv.reader(records)
         actual_headers = next(reader)
 
