@@ -103,7 +103,7 @@ def gen_faidx_objs(fasta, coords, naming_strategy=None):
             except ValueError as exc:
                 if "imply a diffent length than sequence" in str(exc):
                     raise ValueError("Make sure all coordinate values, and buffers in the `regions` csv file are rational. Offending record: {coord}".format(coord=coord))
-            seq_name = "{record_name}_{scaffold}:{start}-{end}".format(record_name=coord.record_name,
+            seq_name = "{record_name} {scaffold}:{start}-{end}".format(record_name=coord.record_name,
                                                                        scaffold=seq_obj.name,
                                                                        start=seq_obj.start,
                                                                        end=seq_obj.end)
@@ -149,7 +149,7 @@ def main(naming, regions, in_fasta, out_fasta):
               csv   use only the contents of the `record_name` field in the csv file (>CPR23).
         seq_range   use only the `scaffold` name and sequence range (>scaffold1:230-679).
     csv_seq_range   use both the contents of the `record_name` field and the `scaffold`.
-                    name and sequence range (>CPR23_scaffold1:230-679).
+                    name and sequence range (>CPR23 scaffold1:230-679).
     """
     infasta = Fasta(in_fasta, strict_bounds=False)
 
