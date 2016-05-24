@@ -41,21 +41,13 @@ Given a CSV file of variable information defining the regions of interest, retur
 
 * Free software: BSD license
 
-Installation
-============
-
-::
-
-    pip install extract_genome_region
 
 Documentation
 =============
 
 https://extract-genome-region.readthedocs.org/
 
-Development
-===========
 
-To run the all tests run::
+.. include:: docs/usage.rst
 
-    tox
+.. include:: docs/installation.rst
