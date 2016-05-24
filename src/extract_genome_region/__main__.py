@@ -33,7 +33,7 @@ def gen_records(path):
         reader = csv.reader(records)
         actual_headers = next(reader)
 
-        if actual_headers != list(Record._fields):
+        if set(actual_headers) != set(Record._fields):
             raise ValueError("Your csv column headers should be: {headers}.".format(headers=Record._fields))
 
         for rec in reader:

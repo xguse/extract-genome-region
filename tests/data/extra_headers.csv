@@ -1,0 +1,3 @@
+record_name,scaffold,start,stop,left_bfr,right_bfr,extra_header
+GFUI049232_noflanks,Scaffold839,47487,53931,0,0,0
+GFUI049232_yesflanks,Scaffold839,47487,53931,50,60,60
