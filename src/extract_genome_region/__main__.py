@@ -107,13 +107,23 @@ def gen_out_rec_strings(faidx_objs):
 def main(naming, regions, in_fasta, out_fasta):
     """Given a CSV file of variable information defining the regions of interest along with input and output fasta file paths, write a file that contains a fasta-formatted representation of these regions.
 
+    Structure of the `regions` CSV file:
+
+    \b
+      record_name   The name you want the seq to have in the new fasta.
+         scaffold   The name of the seq record in the source fasta (chromosome, scaffold, contig, etc).
+            start   The first bp of the seq feature you want in the new fasta.
+             stop   The last bp of the seq feature you want in the new fasta.
+         left_bfr   How many "extra" bp with coords smaller than `start` you want (0 for none).
+        right_bfr   How many "extra" bp with coords larger than `stop` you want (0 for none).
+
     Naming Strategies:
 
     \b
               csv   use only the contents of the `record_name` field in the csv file (>CPR23).
         seq_range   use only the `scaffold` name and sequence range (>scaffold1:230-679).
-    csv_seq_range   use both the contents of the `record_name` field and the `scaffold`
-                    name and sequence range (>CPR23_scaffold1:230-679)
+    csv_seq_range   use both the contents of the `record_name` field and the `scaffold`.
+                    name and sequence range (>CPR23_scaffold1:230-679).
     """
     infasta = Fasta(in_fasta, strict_bounds=False)
 
