@@ -11,7 +11,6 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.napoleon'
 ]
 if os.getenv('SPELLCHECK'):
     extensions += 'sphinxcontrib.spelling',
@@ -28,9 +27,9 @@ version = release = '0.0.1'
 import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_theme_options = {
-    'githuburl': 'https://github.com/xguse/extract-genome-region/'
-}
+# html_theme_options = {
+#     'githuburl': 'https://github.com/xguse/extract-genome-region/'
+# }
 
 pygments_style = 'trac'
 templates_path = ['.']
