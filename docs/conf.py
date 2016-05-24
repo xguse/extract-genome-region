@@ -24,7 +24,7 @@ project = 'Extract genome region'
 year = '2016'
 author = 'Gus Dunn'
 copyright = '{0}, {1}'.format(year, author)
-version = release = '0.0.1'
+version = release = '0.0.2'
 import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]

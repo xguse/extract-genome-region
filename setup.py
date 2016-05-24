@@ -31,7 +31,7 @@ with open("requirements.txt", 'r') as reqs:
 
 setup(
     name='extract_genome_region',
-    version='0.0.1',
+    version='0.0.2',
     license='BSD',
     description='Given a CSV file of variable information defining the regions of interest, return a file that contains a fasta-formatted representation of these regions.',
     long_description='%s\n%s' % (read('README.rst'), re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))),
