@@ -1,5 +1,9 @@
-extract_genome_region
-=====================
+extract_genome_region package
+=============================
 
-.. automodule:: extract_genome_region
+Module contents
+---------------
+
+.. automodule:: extract_genome_region.__main__
     :members:
+    :undoc-members:

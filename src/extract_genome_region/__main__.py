@@ -18,7 +18,14 @@ from pyfaidx import Fasta
 
 
 def gen_records(path):
-    """Given the csv `path`, yield each record as a `namedtuple`."""
+    """Given the csv `path`, yield each record as a `namedtuple`.
+
+    Args:
+        path (str): location of the "regions" CSV file.
+
+    Yields:
+        namedtuple: each row info from the "regions" CSV file.
+    """
     expected_headers = 'record_name,scaffold,start,stop,left_bfr,right_bfr'
     Record = namedtuple('Record', expected_headers)
 
@@ -35,9 +42,16 @@ def gen_records(path):
 
 
 def gen_coords(records):
-    """Given records as `namedtuple`, yield coordinate information as namedtuple.
+    """Given records as a ``namedtuple``, yield coordinate information as a ``namedtuple``.
 
-    The Coord namedtuple will be indexed like standard python strings.
+    Args:
+        records (namedtuple): each row info from the "regions" CSV file.
+
+    Yields:
+        namedtuple: the actual coordinates for slicing the fasta sequence (accounting for any buffers) for a single row in the "regions" CSV file.
+
+    Note:
+        The coordinates in each yielded ``namedtuple`` will assume slicing indexing of standard python strings (zero-based).
     """
     Coord = namedtuple('Coord', 'record_name,scaffold,start,stop')
 
@@ -59,10 +73,15 @@ def gen_coords(records):
                     stop=stop)
 
 def gen_faidx_objs(fasta, coords, naming_strategy=None):
-    """Given the pyfaidx fasta obj and the coords generator, yield each sequence slice as pyfaidx Sequence obj.
+    """Given the pyfaidx fasta obj and the coords generator, yield each sequence slice as ``pyfaidx.Sequence`` objs.
 
-    naming_strategy: how to name each record.
-            If None, use coord.record_name as string.
+    Args:
+        fasta (faidx.Fasta): faidx fasta object.
+        coords (generator): of row information from "regions" CSV file.
+        naming_strategy (str): [csv|seq_range|csv_seq_range] how to name each record. If ``None``, use coord.record_name as string.
+
+    Yields:
+        generator: of faidx sequence objects (``faidx.Sequence``) for each row in the "regions" CSV file.
     """
     for coord in coords:
         if naming_strategy is None:
@@ -92,7 +111,14 @@ def gen_faidx_objs(fasta, coords, naming_strategy=None):
             yield seq_obj
 
 def gen_out_rec_strings(faidx_objs):
-    """Yield the fasta formated record: ready for writing out."""
+    """Yield the fasta formated record: ready for writing out.
+
+    Args:
+        faidx_objs (generator): of ``faidx.Sequence`` objects representing the described region of each row in "regions" CSV file.
+
+    Yields:
+        generator: of formated ``str`` objects representing the fasta record of the described region of each row in "regions" CSV file.
+    """
     for rec in faidx_objs:
         yield ">{myname}\n{seq}\n".format(myname=rec.myname,
                                           seq=tw.fill(rec.seq, width=70))
