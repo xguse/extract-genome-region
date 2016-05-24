@@ -3,7 +3,8 @@ package:
   version: "0.0.3"
 
 source:
-  path: ../
+  git_url: https://github.com/xguse/extract-genome-region.git
+  git_rev: "v0.0.3"
 #  patches:
    # List any patch files here
    # - fix.patch
