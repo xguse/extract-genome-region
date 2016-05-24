@@ -41,13 +41,27 @@ Given a CSV file of variable information defining the regions of interest, retur
 
 * Free software: BSD license
 
+Installation
+============
+
+::
+
+    $ conda install -c bioconda -c gusdunn extract_genome_region
+
+Or
+
+::
+
+    $ pip install extract_genome_region
 
 Documentation
 =============
 
 https://extract-genome-region.readthedocs.org/
 
+Development
+===========
 
-.. include:: docs/usage.rst
+To run the all tests run::
 
-.. include:: docs/installation.rst
+    tox
